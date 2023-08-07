@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = () =>{
+const ExpenseForm = (props) =>{
 
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
@@ -45,6 +45,7 @@ const ExpenseForm = () =>{
             date: enteredDate
         };
 
+        props.onSaveExpenseData();
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
@@ -55,7 +56,8 @@ const ExpenseForm = () =>{
     <div className='new-expense__controls'>
         <div className='new-expense__control'>
             <label>Title</label>
-            <input type='text' value={enteredTitle} onChange={tilteChangeHandler}/>
+            <input type='text' value={enteredTitle} 
+            onChange={tilteChangeHandler}/>
         </div>
         <div className='new-expense__control'>
             <label>Amount</label>
