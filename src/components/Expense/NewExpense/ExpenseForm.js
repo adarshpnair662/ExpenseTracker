@@ -45,7 +45,7 @@ const ExpenseForm = (props) =>{
             date: enteredDate
         };
 
-        props.onSaveExpenseData();
+        props.onSaveExpenseData(expenseData);
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
@@ -56,8 +56,11 @@ const ExpenseForm = (props) =>{
     <div className='new-expense__controls'>
         <div className='new-expense__control'>
             <label>Title</label>
-            <input type='text' value={enteredTitle} 
-            onChange={tilteChangeHandler}/>
+            <input 
+            type='text' 
+            value={enteredTitle} 
+            onChange={tilteChangeHandler}
+            />
         </div>
         <div className='new-expense__control'>
             <label>Amount</label>
