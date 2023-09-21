@@ -4,8 +4,8 @@ import './ExpenseDate.css';
 function ExpenseDate(props)
 {
     let date = new Date(props.date);
-    const month = date.getDay();
-    const day   = date.getMonth();
+    const month = date.toLocaleString('en-US', { day: '2-digit' });
+    const day   = date.toLocaleString('en-US', { month: 'long' })
     const year  = date.getFullYear();
     return(
     <Card className="expense-date">

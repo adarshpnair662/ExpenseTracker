@@ -3,6 +3,7 @@ import Card from './UI/Card';
 import './Expenses.css';
 import { useState } from 'react';
 import ExpensesFilter from './ExpenseFilter';
+import ExpensesChart from './ExpensesChart';
 
 function Expenses(props) {
   
@@ -16,8 +17,8 @@ function Expenses(props) {
   else if(filterInfoText === '2021')
     filterInfoText = '2019, 2020 & 2022';
 
-  const filterChangeHandler = selectedYear =>{
-    setFilteredYear(selectedYear);
+  const filterChangeHandler = selectedYear => {
+    setFilteredYear(selectedYear); 
   }
 
   const filterExpenses = props.items.filter(
@@ -51,6 +52,8 @@ function Expenses(props) {
       
       {/* <p className='paragraph'>Data for the years {filterInfoText} is hidden</p>
        */}
+
+      <ExpensesChart expenses = {filterExpenses}/>
 
       {expenseContent}
 
